@@ -1,5 +1,5 @@
 import React from "react";
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 import { BrowserRouter } from "react-router-dom";
 import {
   Routes,
@@ -11,10 +11,9 @@ import {
   Outlet,
 } from "react-router-dom";
 
-const relativeTime = require('dayjs/plugin/relativeTime')
+const relativeTime = require("dayjs/plugin/relativeTime");
 dayjs.extend(relativeTime);
 
-import ChatAppPage from "./pages/chat-app-page";
 import LoginPage from "./pages/login-page";
 import { useSubscribe, useTracker } from "meteor/react-meteor-data";
 import ConversationList from "./components/modules/chat/conversation-list";

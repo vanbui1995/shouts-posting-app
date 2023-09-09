@@ -15,7 +15,7 @@ const NotificationItem = (props: { noti: INotification }) => {
   const { noti } = props;
   const navigate = useNavigate();
 
-  const handleClickNoti = (e) => {
+  const handleClickNoti: React.MouseEventHandler<HTMLLIElement> = (e) => {
     e.preventDefault();
     switch (noti.type) {
       case NotificationTypes.UNREAD_MESSAGE_1_HOUR:

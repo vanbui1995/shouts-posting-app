@@ -5,7 +5,7 @@ import { ChatBoardContext } from "../../../contexts/chat-board-context";
 
 const MessageItem = (props: { messageData: IMessage }) => {
   const { messageData } = props;
-  const { toUser, profile, fromUserId, toUserId } =
+  const { fromUserId } =
     useContext(ChatBoardContext);
 
   const isMyMessage = messageData.fromUserId === fromUserId;

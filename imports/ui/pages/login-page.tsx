@@ -24,13 +24,12 @@ function LoginPage() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-
-    // let formData = new FormData(event.currentTarget);
-    // let username = formData.get("username") as string;
-
+    setLoading(true);
     Meteor.loginWithPassword({ username }, password, (error) => {
       if (!error) {
         navigate(from || '/app', { replace: true });
+      } else {
+        setLoading(false);
       }
     });
   }
