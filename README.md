@@ -1,7 +1,8 @@
 # Simple Chat App Meteor
-<img width="1030" alt="Screen Shot 2023-09-09 at 14 46 48" src="https://github.com/vanbui1995/chat-app-meteor/assets/47735787/aca36489-8e6d-4cf3-a498-3d7112598cec">
 
-A very simple chat app is written by MeteorJS + React + Tailwind to prove that MeteorJS is still can work with newest frontend techs and simple to build a realtime application
+A very simple chat app is written by MeteorJS + React + Tailwind to prove that MeteorJS is still work with newest frontend techs and simple to build a realtime application
+
+<img width="1030" alt="Screen Shot 2023-09-09 at 14 46 48" src="https://github.com/vanbui1995/chat-app-meteor/assets/47735787/aca36489-8e6d-4cf3-a498-3d7112598cec">
 Demo link: https://chat-app-2023-vanbui.au.meteorapp.com
 
 
