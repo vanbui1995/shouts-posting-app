@@ -25,3 +25,18 @@ Demo link: https://chat-app-2023-vanbui.au.meteorapp.com
 - Unread count
 - Notifications
 
+### Folder structure
+
+    .
+    src
+    ├── ...
+    └── server/main.tsx           # Backend entry point file (Root)
+    ├── imports                   # Contain all main pages, the root component of each page
+    │   ├── ui/*                  # All frontend source code
+    │   ├── api/collections/*     # Define all collection schema
+    │   ├── api/methods/*         # Define all Meteor methodss (APIs)
+    │   └── api/publications/*    # Define all Meteor publications (backend realtime)
+    │   └── api/job-handlers/*    # Define all jobs on the backend side
+    └── tailwind.config.cjs       # Tailwind config, I configured all colors/spacing of the guideline via this file
+    
+
