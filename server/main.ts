@@ -1,21 +1,13 @@
 import { Meteor } from "meteor/meteor";
 // @ts-ignore
-import { SyncedCron } from "meteor/littledata:synced-cron";
 
-import { initJob } from '../imports/api/job-handlers/one-hour-un-read-noti'
 
 import "../imports/api/methods";
 import "../imports/api/publications";
+import Collections from "../imports/api/collections";
 
 
 Meteor.startup(async () => {
-
-  initJob();
-  SyncedCron.start();
-
-
-
-
   // Seeding Db
   const user = Meteor.users.findOne();
   if (!user) {

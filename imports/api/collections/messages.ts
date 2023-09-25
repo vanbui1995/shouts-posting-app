@@ -2,11 +2,10 @@ import { Mongo } from 'meteor/mongo';
 import { IBaseDocument } from './base';
 
 export interface IMessage extends IBaseDocument {
-    _sid: string;
+    _id: string;
     message: string;
-    isRead: boolean;
     fromUserId: string;
-    toUserId: string;
+    fromUser: Meteor.User;
 }
 
 export const MessageCollection = new Mongo.Collection<IMessage>('messages');

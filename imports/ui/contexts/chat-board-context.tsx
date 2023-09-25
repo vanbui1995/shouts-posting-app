@@ -3,12 +3,15 @@ import { createContext } from "react"
 import { IUserProfile } from "../../type/general";
 
 interface IChatBoardContext {
-  toUserId?: string | null;
   fromUserId?: string | null;
-  toUser?: Meteor.User | null;
-  profile?: IUserProfile;
+  editMessageId?: string | null;
+  setEditMessageId?: React.Dispatch<React.SetStateAction<string | null | undefined>>;
+  setMessage?: React.Dispatch<React.SetStateAction<string | null | undefined>>;
+  message?: string | null;
 }
 
-export const ChatBoardContext = createContext<IChatBoardContext>({});
+export const ChatBoardContext = createContext<IChatBoardContext>({
+
+});
 
 

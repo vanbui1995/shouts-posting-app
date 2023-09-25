@@ -1,31 +1,12 @@
 import { check } from "meteor/check";
 import Collections from "../collections";
 
-Meteor.publish("message:loadMessage", function (toUserId: string) {
-  check(toUserId, String);
+Meteor.publish("message:loadMessage", function () {
+  // Check only logged user can sub the messasges
   if (this.userId) {
-    return Collections.Message.find({
-      $or: [
-        {
-          toUserId,
-          fromUserId: this.userId,
-        },
-        {
-          toUserId: this.userId,
-          fromUserId: toUserId,
-        },
-      ],
-    });
+    return Collections.Message.find({});
   }
 
   return this.ready();
 });
 
-Meteor.publish("message:getAllMyUnReadMessage", function () {
-  if (this.userId) {
-    return Collections.UnReadMessage.find({
-      toUserId: this.userId,
-    });
-  }
-  return this.ready();
-});
