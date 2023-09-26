@@ -17,6 +17,8 @@
     "@tailwindcss/forms": "^0.5.6",
     "@types/meteor": "^2.9.4",
     "dayjs": "^1.11.9",
+    "expect": "^29.7.0",
+    "lodash": "^4.17.21",
     "meteor-node-stubs": "^1.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -34,6 +36,7 @@
     "testModule": "tests/main.js"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.1",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.29",
     "tailwindcss": "^3.3.3"
