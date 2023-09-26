@@ -2,7 +2,7 @@ import assert from "assert";
 import _pick from "lodash/pick";
 import { methods } from "../imports/api/methods/messsage";
 import Collections from "../imports/api/collections";
-import { Match } from "meteor/check";
+
 
 describe("MessageMethodAPI - messageAddMessage", function () {
   it("messageAddMessage - Add message successfully", () => {
@@ -112,16 +112,16 @@ describe("MessageMethodAPI - messageUpdateMessage", function () {
     };
     const messageUpdateMessage = methods.messageUpdateMessage.bind(context);
     const originalMessage = {
-      _id: "messsage10",
+      _id: "messsage12",
       message: "new message 1",
       fromUserId: context.userId,
     };
     Collections.Message.insert(originalMessage);
 
     assert.throws(function () {
-      messageUpdateMessage({ messageId: "messsage10", updatedMesssage: "new message 1 - updated" });
+      messageUpdateMessage({ messageId: "messsage12", updatedMesssage: "new message 1 - updated" });
     }, Meteor.Error("Invalid request", "Missing authentication"));
-    const updatedMessage = Collections.Message.findOne('messsage10');
+    const updatedMessage = Collections.Message.findOne('messsage12');
     // Expect the message is unchanged
     assert.deepEqual(
       originalMessage,
@@ -129,3 +129,28 @@ describe("MessageMethodAPI - messageUpdateMessage", function () {
     );
   });
 });
+
+
+describe("MessageMethodAPI - messageDeleteMessage", function () {
+  it("messageDeleteMessage - Delete message successfully", () => {
+    const context = {
+      userId: "vanbui_id",
+    };
+    const messageDeleteMessage = methods.messageDeleteMessage.bind(context);
+    Collections.Message.insert({
+      _id: "messsage11",
+      message: "new message 11",
+      fromUserId: context.userId,
+    });
+    const numberChanged = messageDeleteMessage({ messageId: "messsage11" });
+    const removeMessage = Collections.Message.findOne('messsage11');
+    // Expect message inserted to our database
+    assert.deepEqual(
+      1,
+      numberChanged,
+    );
+    assert.equal(removeMessage, null);
+  });
+
+});
+

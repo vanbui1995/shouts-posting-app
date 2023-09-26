@@ -68,7 +68,7 @@ export const methods: {
 
     return changedNumber;
   },
-  messageDeleteMessage(body: { messageId: string }): string {
+  messageDeleteMessage(body: { messageId: string }): number {
     const { messageId } = body;
     const currentUserId = this.userId;
     check(messageId, String);
@@ -80,12 +80,12 @@ export const methods: {
     }
 
     // Make sure the deleted message belong to the sender
-    Collections.Message.remove({
+    const numberRemoved = Collections.Message.remove({
       fromUserId: currentUserId,
       _id: messageId,
     });
 
-    return messageId;
+    return numberRemoved;
   },
 };
 
