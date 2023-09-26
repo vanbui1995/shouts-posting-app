@@ -4,6 +4,8 @@ A very simple app is written by MeteorJS + React + Tailwind to prove that Meteor
 
 Demo link: https://chat-app-2023-vanbui.au.meteorapp.com
 
+<img width="915" alt="Screen Shot 2023-09-26 at 23 34 50" src="https://github.com/vanbui1995/shouts-posting-app/assets/47735787/40b9890f-d6e7-45a9-912c-a956c14b118d">
+
 ### How to run it locally
 
 1. Make sure you are on NodeJS version 14 (recommended by MeteorJS)
