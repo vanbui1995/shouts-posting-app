@@ -25,7 +25,7 @@ describe("MessageMethodAPI - messageAddMessage", function () {
 
   it("messageAddMessage - Fail to add message due to message input is invalid - null", () => {
     const context = {
-      userId: null,
+      userId: null, // No Authen Case 
     };
     const messageAddMessage = methods.messageAddMessage.bind(context);
     assert.throws(function () {
@@ -39,7 +39,7 @@ describe("MessageMethodAPI - messageAddMessage", function () {
 
   it("messageAddMessage - Fail to add message due to message input is invalid - empty string", () => {
     const context = {
-      userId: null,
+      userId: null, // No Authen Case 
     };
     const messageAddMessage = methods.messageAddMessage.bind(context);
     assert.throws(function () {
@@ -85,7 +85,7 @@ describe("MessageMethodAPI - messageUpdateMessage", function () {
 
   it("messageUpdateMessage - Update message failed due to missing authentication", () => {
     const context = {
-      userId: null,
+      userId: null, // No Authen Case 
     };
     const messageUpdateMessage = methods.messageUpdateMessage.bind(context);
     const originalMessage = {
@@ -108,7 +108,7 @@ describe("MessageMethodAPI - messageUpdateMessage", function () {
 
   it("messageUpdateMessage - Update message failed due to message", () => {
     const context = {
-      userId: null,
+      userId: null, // No Authen Case 
     };
     const messageUpdateMessage = methods.messageUpdateMessage.bind(context);
     const originalMessage = {
@@ -150,6 +150,27 @@ describe("MessageMethodAPI - messageDeleteMessage", function () {
       numberChanged,
     );
     assert.equal(removeMessage, null);
+  });
+
+
+  it("messageDeleteMessage - Delete message failed due to missing authentication", () => {
+    const context = {
+      userId: null, // No Authen Case
+    };
+    const messageDeleteMessage = methods.messageDeleteMessage.bind(context);
+    Collections.Message.insert({
+      _id: "messsage13",
+      message: "new message 13",
+      fromUserId: context.userId,
+    });
+
+    assert.throws(function () {
+      messageDeleteMessage({ messageId: "messsage13" });
+    }, Meteor.Error("Invalid request", "Missing authentication"));
+
+    const deletedMessage = Collections.Message.findOne('messsage13');
+    // Expect the message should not be deleted by using not equal
+    assert.notEqual(deletedMessage, null);
   });
 
 });

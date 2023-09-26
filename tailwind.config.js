@@ -13,6 +13,7 @@ module.exports = {
         },
         colors: {
             iceberg: '#8BABD8',
+            orange: '#fef9ed',
             lightgreen: '#78E378',
             red: '#F71735',
             black: '#011627',
